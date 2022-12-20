@@ -1,0 +1,11 @@
+name: AutoRestartPlugin
+version: '${project.version}'
+main: com.cocobeen.Bukkit.AutoRestartPlugin
+api-version: 1.19
+authors: [ CoCo4INOwO ]
+commands:
+  autorestart:
+    permission: autorestart.admin
+permissions:
+  autorestart.admin:
+    default: op

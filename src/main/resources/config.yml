@@ -1,0 +1,34 @@
+kick-player-message: "[重新啟動系統] 伺服器尚未準備完成,請稍後在試..."
+restart: "[重新啟動系統] 開始重新啟動..."
+server-not-players: "[重新啟動系統] 當前伺服器並無任何玩家,無法使用本系統重新啟動"
+shutdown-delay: 10
+restart-delay: 10
+restart-server: "server1"
+wait-server: "wait"
+
+restart-tps-lower-limit: 8
+restart-tps-lower-message: "[重新啟動系統] 偵測到伺服器卡頓,伺服器將自動重新啟動"
+
+restart-time:
+  day: 19
+  minute: 0
+
+socket:
+  host: "127.0.0.1"
+  port: 48765
+  timeout: 10000
+
+discord-webhook:
+  webhook-url: "https://discord.com/api/webhooks/980508098169032805/DqrCZzOCuWnKF-U8c0H84o4OXDdg2-BXkTLCQ0p6YaNiHKi-v5d8IqBFd2lJa1RZuy0N"
+  username: "重新啟動機器人"
+  avatar-url: "https://cdn.discordapp.com/attachments/879396912745291820/893666032366010420/019.png"
+  content: ""
+  title: "🛠️伺服器重新啟動🛠️"
+  description: "**分流一 正在重新啟動中...**"
+  image: "https://cdn.discordapp.com/attachments/879396912745291820/893374136217370694/1.png"
+  thumbnail: "https://cdn.discordapp.com/attachments/879396912745291820/893665834587795466/010.png"
+  footer-message: "{reason} • {time}"
+  reason-use-command: "人工執行重新啟動"
+  reason-time: "定時重新啟動"
+  reason-tps-limit: "伺服器卡頓重新啟動"
+  footer-image: "https://cdn.discordapp.com/attachments/879396912745291820/893665729650503720/01.png"

@@ -1,0 +1,4 @@
+restart-message: "玩家 {player} 因切換至其他分流因而移出自動傳送列隊"
+socket:
+  port: 48765
+wait-server: "wait"

@@ -1,0 +1,4 @@
+name: CoCoBeenAutoRestartPluginBungee
+version: '${project.version}'
+main: com.cocobeen.Bungee.AutoRestartPluginBungee
+author: [ CoCo4INOwO ]
