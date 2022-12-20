@@ -18,11 +18,13 @@ public class ServerSwitchListener implements Listener {
     public void OnServerSwitch(ServerSwitchEvent event){
         ProxiedPlayer player = event.getPlayer();
         String wait_server = data.getConfig().getString("wait-server");
-
         if (event.getFrom().getName().equals(wait_server)){
             for (String index : RestartServer.server_index){
                 List<ProxiedPlayer> players = RestartServer.restart_map.get(index);
                 if (players.contains(player)){
+                    String remove_list = data.getConfig().getString("restart-message");
+                    plugin.getLogger().warning(remove_list
+                            .replace("{player}", player.getName()));
                     players.remove(player);
                 }
                 RestartServer.restart_map.put(index, players);
