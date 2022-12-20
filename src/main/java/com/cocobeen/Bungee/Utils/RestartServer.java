@@ -79,8 +79,6 @@ public class RestartServer extends Thread{
                             List<ProxiedPlayer> ProxiedPlayers = restart_map.get(server_name[0]);
                             ServerInfo servers = plugin.getProxy().getServerInfo(server_name[0]);
 
-                            System.out.println(ProxiedPlayers);
-
                             for (ProxiedPlayer player : ProxiedPlayers){
                                 player.connect(servers);
                             }

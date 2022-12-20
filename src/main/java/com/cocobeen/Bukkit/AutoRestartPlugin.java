@@ -56,7 +56,7 @@ public class AutoRestartPlugin extends JavaPlugin {
 
     private void registerEvents(){
         getServer().getPluginManager().registerEvents(new PlayerLoginListener(), this);
-        getServer().getPluginManager().registerEvents(new ServerLoadListener(), this);
+        //getServer().getPluginManager().registerEvents(new ServerLoadListener(), this);
     }
 
     private void registerCommands(){
@@ -96,6 +96,18 @@ public class AutoRestartPlugin extends JavaPlugin {
                 ServerLoginDelay = false;
             }
         }.runTaskLater(this, restart_delay * 20);
+
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                if (dataManager.getDataConfig().getBoolean("state")){
+                    dataManager.getDataConfig().set("state", false);
+                    plugin.getDataManager().saveDataConfig();
+                    String server_name = getConfig().getString("restart-server");
+                    new RestartClient(Base64Encode.EncodeString("restart_done#" + server_name));
+                }
+            }
+        }.runTaskLater(this, (restart_delay + 5) * 20);
     }
 
     public void SetupAutoRestart(String reason){
@@ -136,7 +148,10 @@ public class AutoRestartPlugin extends JavaPlugin {
                     getServer().shutdown();
                 }
             }.runTaskLaterAsynchronously(this, restart_delay * 20);
+            return;
         }
+        String server_not_players = getConfig().getString("server-not-players");
+        getLogger().warning(server_not_players);
     }
 
     public void sendDiscordWebhookMessage(String reason){
