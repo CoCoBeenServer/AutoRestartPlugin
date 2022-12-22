@@ -3,6 +3,7 @@ package com.cocobeen.Bungee.Listener;
 import com.cocobeen.Bungee.AutoRestartPluginBungee;
 import com.cocobeen.Bungee.Utils.DataManager;
 import com.cocobeen.Bungee.Utils.RestartServer;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.ServerSwitchEvent;
 import net.md_5.bungee.api.plugin.Listener;
@@ -19,9 +20,9 @@ public class ServerSwitchListener implements Listener {
         ProxiedPlayer player = event.getPlayer();
         String wait_server = data.getConfig().getString("wait-server");
 
-        String from = event.getFrom().getName();
+        ServerInfo from = event.getFrom();
 
-        if (from != null && from.equals(wait_server)){
+        if (from != null && from.getName().equals(wait_server)){
             for (String index : RestartServer.server_index){
                 List<ProxiedPlayer> players = RestartServer.restart_map.get(index);
                 if (players.contains(player)){
