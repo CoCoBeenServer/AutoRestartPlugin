@@ -79,7 +79,7 @@ public class AutoRestartPlugin extends JavaPlugin {
 
                 if (tps_one < tps_limit && tps_two < tps_limit && tps_three < tps_limit) {
                     String tps_lower_message = getConfig().getString("restart-tps-lower-message");
-                    String reason = getConfig().getString("reason-tps-limit");
+                    String reason = getConfig().getString("discord-webhook.reason-tps-limit");
                     getServer().broadcast(Component.text(tps_lower_message));
 
                     SetupAutoRestart(reason);
